@@ -10,7 +10,7 @@ from scipy.stats import fisher_exact
 
 
 #===STEP 1: LOAD DATASET AND DROP RESISTANCE PHENOTYPE COLUMN===
-df = pd.read_csv("C:/Users/anvay/OneDrive/Desktop/Study Stuff MBB/ARP/Datasets/final_beta_lactamase_dataset.csv")
+df = pd.read_csv(#paste file directory here)
 X = df.drop(columns=['Resistance Phenotype'])
 
 # Fit PCA without limiting n_components
@@ -144,7 +144,7 @@ top_variable_genes_df = pd.DataFrame(variability_data).sort_values(by='Absolute 
 
 # Select top 15
 top_variable_genes_df = top_variable_genes_df.head(15)
-top_variable_genes_df.to_csv("C:/Users/anvay/OneDrive/Desktop/Study Stuff MBB/ARP/Datasets/CLUSTERS6AND24.csv")
+top_variable_genes_df.to_csv(#directory here)
 
 
 #===STEP 7: BARPLOT OF RESISTANCE ENRICHMENT IN CLUSTERS
@@ -343,7 +343,7 @@ final_clusters_comparison_df.sort_values(by='Max Absolute Difference', ascending
 final_clusters_comparison_df.drop(columns=['Max Absolute Difference'], inplace=True)
 
 # Save the dataframe to CSV
-final_clusters_comparison_df.to_csv("C:/Users/anvay/OneDrive/Desktop/Study Stuff MBB/ARP/Datasets/clusters1_2_23_vs_rest.csv", index=False)
+final_clusters_comparison_df.to_csv(#directory here, index=False)
 
 
 
@@ -432,7 +432,7 @@ for gene in gene_cols_c0:
 
 # 6. Build sorted dataframe
 cluster0_vs_sixty90_res_df = pd.DataFrame(diff_table_c0).sort_values(by='Absolute Difference', ascending=False)
-cluster0_vs_sixty90_res_df.to_csv("C:/Users/anvay/OneDrive/Desktop/Study Stuff MBB/ARP/Datasets/0vsother6090.csv")
+cluster0_vs_sixty90_res_df.to_csv(#directory here)
 
 # === STEP 13: Compare <60% Resistant Clusters vs Fully Susceptible Clusters ===
 # 0. Create a noise-free copy of the data for this heatmap only
@@ -523,7 +523,7 @@ fisher_df = pd.DataFrame(fisher_results, columns=[
 
 # Sort and display
 fisher_df = fisher_df.sort_values(by='P-Value').reset_index(drop=True)
-fisher_df.to_csv("C:/Users/anvay/OneDrive/Desktop/Study Stuff MBB/ARP/Datasets/fisher_test_prevalent.csv")
+fisher_df.to_csv(#directory here)
 
 
 # FINDING POSSIBLE RARE GENES in noise "cluster"
@@ -600,7 +600,7 @@ rare_fisher_df_sorted = pd.DataFrame(rare_fisher_results, columns=[
     'Gene', 'Odds Ratio', 'log2(Odds Ratio)', 'P-Value', '-log10(P-Value)'
 ]).sort_values(by='Odds Ratio', ascending=False).reset_index(drop=True)
 
-rare_fisher_df_sorted.to_csv("C:/Users/anvay/OneDrive/Desktop/Study Stuff MBB/ARP/Datasets/RARE_FISHER_RESULTS.csv")
+rare_fisher_df_sorted.to_csv(#directory here)
 
 
 # === STEP 8: HEATMAP OF FULLY RESISTANT AND FULLY SUSCEPTIBLE CLUSTERS (using absolute difference) ===
